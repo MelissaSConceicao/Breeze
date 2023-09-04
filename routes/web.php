@@ -14,18 +14,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+/**
+ * Essas rotas exibem as páginas através do caminho para os 
+ * controllers e chamando as funções que vão mostrar as telas
+ */
+Route::get('/', 'App\Http\Controllers\PrincipalController@principal');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/sobrenos', 'App\Http\Controllers\SobreNosController@sobrenos');
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
+Route::get('/contato', 'App\Http\Controllers\ContatoController@contato');
 
-require __DIR__.'/auth.php';
+
+/**
+ * Passando parâmetros através das rotas
+ * Aqui é passado um nome e uma mensagem que pode ou não ser passada,
+ * caso não seja passada, a mensagem será 'sem texto'
+ */
+Route::get('/contato/{nome}/{mensagem?}', 
+    function(string $nome, string $mensagem = 'sem texto')
+    {echo 'passagem de parâmetros via browser: ' .$nome. ' - ' .$mensagem;}
+);
