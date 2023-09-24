@@ -1,11 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Página Contato<h1>
-</body>
-</html>
+@extends('site.layout.basico')
+
+@section('titulo', $titulo)
+
+@section('conteudo')
+    <div class="conteudo-pagina">
+        <div class="titulo-pagina">
+            <h1>Entre em contato conosco</h1>
+        </div>
+
+        <div class="informacao-pagina">
+            <div class="contato-principal">
+                {{-- Incluindo o código do formulário --}}
+                @components('site.layout._components.form_contato')
+                <p> LOGO ENTRAREMOS EM CONTATO </p>
+                <p> NOSSO TEMPO MÉDIO DE RESPOSTA É 48 HORAS </p>
+                @endcomponent
+            </div>
+        </div>
+    </div>
+
+    <div class="rodape">
+        <div class="redes-sociais">
+            <h2>Redes Sociais</h2>
+            <img src=" {{ asset('img/facebook.png') }} ">
+            <img src=" {{ asset('img/linkedin.png') }} ">
+            <img src=" {{ asset('img/youtube.png') }} ">
+        </div>
+        <div class="arma-contato">
+            <h2>Contato</h2>
+            <span>(11) 3333-4444</span>
+            <br>
+            <span>supergestao@dominio.com.br</span>
+        </div>
+        <div class="localizacao">
+            <h2>Localização</h2>
+            <img src=" {{ asset('img/mapa.png') }} ">
+        </div>
+    </div>
+@endsection

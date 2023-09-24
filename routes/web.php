@@ -22,6 +22,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'App\Http\Controllers\PrincipalController@index')->name('site.principal');
 Route::get('/sobrenos', 'App\Http\Controllers\SobreNosController@sobrenos')->name('site.sobrenos');
 Route::get('/contato', 'App\Http\Controllers\ContatoController@contato')->name('site.contato');
+//Rota para os dados serem enviado ao controller
+Route::post('/contato', 'App\Http\Controllers\ContatoController@contato')->name('site.contato');
+Route::get('/login', function(){return 'Login';})->name('site.login');
 
 
 /**
@@ -37,15 +40,13 @@ Route::get('/contato', 'App\Http\Controllers\ContatoController@contato')->name('
 
 
 
-Route::prefix('/admin')-> group (function(){
-    Route::get('/clientes', function(){return 'Clientes';});
-    Route::get('/fornecedores', 'App\Http\Controllers\FornecedorController@index')->name('admin.fornecedores');
-    Route::get('/produtos', function(){return 'Produtos';});
+Route::prefix('/app')-> group (function(){
+    Route::get('/clientes', function(){return 'Clientes';})->name('app.clientes');
+    Route::get('/fornecedores', 'App\Http\Controllers\FornecedorController@index')->name('app.fornecedores');
+    Route::get('/produtos', function(){return 'Produtos';})->name('app.produtos');
 });
 
-Route::get('/admin', function(){
-    return redirect()->route('site.principal');
-});
+Route::get('/teste/{p1}/{p2}', 'TesteController@teste')->name('site.teste');
 
 //redireciona quando não encontra parâmetros
 Route::fallback(function(){
