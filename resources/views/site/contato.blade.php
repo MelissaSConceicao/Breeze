@@ -11,7 +11,7 @@
         <div class="informacao-pagina">
             <div class="contato-principal">
                 {{-- Incluindo o código do formulário --}}
-                @components('site.layout._components.form_contato')
+                @component('site.layout._components.form_contato')
                 <p> LOGO ENTRAREMOS EM CONTATO </p>
                 <p> NOSSO TEMPO MÉDIO DE RESPOSTA É 48 HORAS </p>
                 @endcomponent
@@ -26,7 +26,7 @@
             <img src=" {{ asset('img/linkedin.png') }} ">
             <img src=" {{ asset('img/youtube.png') }} ">
         </div>
-        <div class="arma-contato">
+        <div class="area-contato">
             <h2>Contato</h2>
             <span>(11) 3333-4444</span>
             <br>

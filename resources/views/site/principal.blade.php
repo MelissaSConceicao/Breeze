@@ -29,7 +29,7 @@
                 </div>
             </div>
             <div class="video">
-                <img src="{{ asset('img/player_video.png') }}">
+                <img src="{{ asset('img/player_video.jpg') }}">
             </div>
         </div>
 
@@ -38,7 +38,7 @@
                 <h1>Contato</h1>
                 <p>Caso tenha qualquer dúvida, por favor entre em contato com nossa equipe pelo formulário abaixo</p>
                 @component('site.layout._components.form_contato')
-                @endcomponents
+                @endcomponent
             </div>
         </div>
     </div>
